@@ -6,8 +6,7 @@ class Person(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     age = models.IntegerField()
-    relationship = models.CharField(max_length=50)
-    last_visit_date = models.DateField(null=True, blank=True)
-    last_visit_reason = models.TextField(blank=True)
-    last_conversation = models.TextField(blank=True)
-    photo = models.ImageField(upload_to='faces/')
+    photo = models.ImageField(upload_to='faces/', null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"

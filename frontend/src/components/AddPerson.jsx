@@ -22,7 +22,11 @@ function AddPerson() {
         "http://127.0.0.1:8000/api/persons/",
         formData,
         {
-            withCredentials: true,
+          auth: {
+            username: "admin",
+            password: "",
+          },
+          withCredentials: true,
           headers: {
             "Content-Type": "multipart/form-data",
           },

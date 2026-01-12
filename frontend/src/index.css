@@ -1,1 +1,12 @@
 @import "tailwindcss";
+
+/* Coolors Exported Palette - https://coolors.co/c9e0f8-4b656c-000000-97b2c4-597081 */
+
+:root {
+  /* CSS HEX */
+  --pale-sky: #c9e0f8ff;
+  --blue-slate: #4b656cff;
+  --black: #000000ff;
+  --powder-blue: #97b2c4ff;
+  --blue-slate-2: #597081ff;
+}

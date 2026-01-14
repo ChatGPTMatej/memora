@@ -1,15 +1,12 @@
-@import "tailwindcss";
-
-/* Coolors Exported Palette - https://coolors.co/c9e0f8-4b656c-000000-97b2c4-597081 */
-
 :root {
-  --pale-sky: #c9e0f8;
-  --blue-slate: #4b656c;
-  --black: #000000;
-  --powder-blue: #97b2c4;
-  --blue-slate-2: #597081;
+  --pale-sky: #c9e0f8ff;
+  --blue-slate: #4b656cff;
+  --black: #000000ff;
+  --powder-blue: #97b2c4ff;
+  --blue-slate-2: #597081ff;
 }
 
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -17,53 +14,100 @@
 }
 
 html,
-body {
+body,
+#root {
   width: 100%;
   height: 100%;
-  background: var(--black);
 }
 
 body {
-  color: var(--pale-sky);
-  font-family: system-ui, sans-serif;
+  background: linear-gradient(135deg, var(--black), var(--blue-slate-2));
+    color: var(--pale-sky);
+    font-family: 'Montserrat', system-ui, sans-serif;
+  overflow: hidden;
 }
 
 /* HOME */
-
 .home {
-  min-height: 100vh;
+  width: 100%;
+  height: 100vh;
   position: relative;
-  background: linear-gradient(135deg, var(--black), var(--blue-slate-2));
 }
 
-/* HERO */
-
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/* HERO LAYOUT */
+.hero-layout {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 20px;
+  padding: 0 8vw;
+  gap: 60px;
 }
 
-.hero h1 {
+/* TEXT */
+.hero-text h1 {
   font-size: 5rem;
   letter-spacing: 0.4em;
 }
 
-.hero p {
-  font-size: 1.2rem;
+.hero-text p {
+  margin-top: 20px;
   color: var(--powder-blue);
   letter-spacing: 0.15em;
 }
 
-/* ADMIN BUTTON – PRAVÝ HORNÍ ROH */
+/* 3D container - canvas inside will fill it */
+.hero-3d {
+  width: 100%;
+  height: 500px;
+  /* důležité: canvas musí mít prostor */
+}
 
+/* ADMIN */
 .admin-link {
   position: fixed;
   top: 24px;
   right: 32px;
-  z-index: 100;
+  z-index: 10;
   text-decoration: none;
+}
+
+/* FADE IN */
+.home {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.page-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animace textu */
+.hero h1,
+.hero p,
+.admin-link {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.page-visible .hero h1 {
+  transition-delay: 0.2s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-visible .hero p {
+  transition-delay: 0.4s;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-visible .admin-link {
+  transition-delay: 0.6s;
+  opacity: 1;
+  transform: translateY(0);
 }

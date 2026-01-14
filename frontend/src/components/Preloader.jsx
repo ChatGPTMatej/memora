@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 export default function Preloader({ onFinish }) {
-  const [startZoom, setStartZoom] = useState(false);
+  const [zoom, setZoom] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setStartZoom(true), 1000);
-    const finishTimer = setTimeout(onFinish, 2600);
+    const startZoom = setTimeout(() => setZoom(true), 1000);
+    const finish = setTimeout(onFinish, 2800);
 
     return () => {
-      clearTimeout(timer);
-      clearTimeout(finishTimer);
+      clearTimeout(startZoom);
+      clearTimeout(finish);
     };
   }, [onFinish]);
 
@@ -19,14 +19,14 @@ export default function Preloader({ onFinish }) {
     <motion.div
       className="preloader"
       initial={{ opacity: 1 }}
-      animate={{ opacity: startZoom ? 0 : 1 }}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
+      animate={{ opacity: zoom ? 0 : 1 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
     >
       <motion.h1
         className="logo"
         initial={{ scale: 1 }}
-        animate={{ scale: startZoom ? 20 : 1 }}
-        transition={{ duration: 1.4, ease: "easeInOut" }}
+        animate={{ scale: zoom ? 25 : 1 }}
+        transition={{ duration: 1.8, ease: "easeInOut" }}
       >
         MEMORA
       </motion.h1>

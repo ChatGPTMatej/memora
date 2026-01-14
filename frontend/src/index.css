@@ -3,10 +3,67 @@
 /* Coolors Exported Palette - https://coolors.co/c9e0f8-4b656c-000000-97b2c4-597081 */
 
 :root {
-  /* CSS HEX */
-  --pale-sky: #c9e0f8ff;
-  --blue-slate: #4b656cff;
-  --black: #000000ff;
-  --powder-blue: #97b2c4ff;
-  --blue-slate-2: #597081ff;
+  --pale-sky: #c9e0f8;
+  --blue-slate: #4b656c;
+  --black: #000000;
+  --powder-blue: #97b2c4;
+  --blue-slate-2: #597081;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: var(--black);
+}
+
+body {
+  color: var(--pale-sky);
+  font-family: system-ui, sans-serif;
+}
+
+/* HOME */
+
+.home {
+  min-height: 100vh;
+  position: relative;
+  background: linear-gradient(135deg, var(--black), var(--blue-slate-2));
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.hero h1 {
+  font-size: 5rem;
+  letter-spacing: 0.4em;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--powder-blue);
+  letter-spacing: 0.15em;
+}
+
+/* ADMIN BUTTON – PRAVÝ HORNÍ ROH */
+
+.admin-link {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  z-index: 100;
+  text-decoration: none;
 }
